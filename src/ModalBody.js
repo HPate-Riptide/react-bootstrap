@@ -1,28 +1,34 @@
-import React from 'react';
 import classNames from 'classnames';
+import React from 'react';
+import elementType from 'react-prop-types/lib/elementType';
+
+import { bsClass, getClassSet, splitBsProps } from './utils/bootstrapUtils';
+
+const propTypes = {
+  componentClass: elementType,
+};
+
+const defaultProps = {
+  componentClass: 'div',
+};
 
 class ModalBody extends React.Component {
   render() {
+    const { componentClass: Component, className, ...props } = this.props;
+    const [bsProps, elementProps] = splitBsProps(props);
+
+    const classes = getClassSet(bsProps);
+
     return (
-      <div
-        {...this.props}
-        className={classNames(this.props.className, this.props.modalClassName)}>
-        {this.props.children}
-      </div>
+      <Component
+        {...elementProps}
+        className={classNames(className, classes)}
+      />
     );
   }
 }
 
-ModalBody.propTypes = {
-  /**
-   * A css class applied to the Component
-   */
-  modalClassName: React.PropTypes.string
-};
+ModalBody.propTypes = propTypes;
+ModalBody.defaultProps = defaultProps;
 
-ModalBody.defaultProps = {
-  modalClassName: 'modal-body'
-};
-
-
-export default ModalBody;
+export default bsClass('modal-body', ModalBody);
