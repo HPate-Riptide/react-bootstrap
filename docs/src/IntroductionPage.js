@@ -20,7 +20,7 @@ const IntroductionPage = React.createClass({
             <div className="col-md-9" role="main">
               <div className="bs-docs-section">
                 <p className="lead">
-                  React-Bootstrap is a library of reuseable front-end components.
+                  React-Bootstrap is a library of reusable front-end components.
                   You'll get the look-and-feel of Twitter Bootstrap,
                   but with much cleaner code, via Facebook's React.js framework.
                 </p>
@@ -165,7 +165,7 @@ React.render(button, mountNode);`
                     codeText={
 `var buttonGroupInstance = (
   <ButtonGroup>
-    <DropdownButton bsStyle="success" title="Dropdown">
+    <DropdownButton id="dropdown-btn-menu" bsStyle="success" title="Dropdown">
       <MenuItem key="1">Dropdown link</MenuItem>
       <MenuItem key="2">Dropdown link</MenuItem>
     </DropdownButton>
